@@ -238,6 +238,20 @@ VisorHollow  → host detection (did EDR catch what code_exec ran?)
 
 ---
 
+## Use with Claude Code
+
+Claude Code can build VisorAgent, run injection vectors against a target agent configuration, and interpret the coverage matrix to identify which trust boundaries failed.
+
+```
+Build VisorAgent with `go build -o visoragent .`, then run `./visoragent run` with ANTHROPIC_API_KEY set. Analyze the coverage matrix output: for every MISS signal, explain what trust boundary it represents, why the agent didn't catch it, and what system prompt or tool-call validation change would close the gap.
+```
+
+```
+I have VisorAgent results from running a VisorCorpus set against an external Ollama endpoint. Read the output, identify every UNSAFE result, group them by attack category (prompt_injection, kb_exfiltration, doc_poison), and draft a findings section for a security assessment report.
+```
+
+---
+
 ## License
 
 MIT — see [LICENSE](LICENSE)
